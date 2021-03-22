@@ -2,7 +2,7 @@ import React from 'react'
 import {getMergeSortAnimations} from '../sortingAlgorithms/sortingAlgorithm.js'
 import { randomIntFromInterval } from './randomIntFromInterval'
 import { arraysAreEqual} from './arraysAreEqual'
-import '../SortingVisualizer/SortingVisualizer.css'
+import './SortingVisualizer.css'
 
 // Speed of animation
 const ANIMATION_SPEED_MS = 1
