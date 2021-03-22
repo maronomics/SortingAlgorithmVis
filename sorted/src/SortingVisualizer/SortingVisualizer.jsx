@@ -16,6 +16,7 @@ const PRIMARY_COLOUR = 'black'
 // Secondary colour for bars
 const SECONDARY_COLOUR = 'red'
 
+const arrayBars = getElementsByClassName('array-bars')
 export default class SortingVisualizer extends React.Component {
     constructor(props){
         super(props)
