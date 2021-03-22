@@ -1,4 +1,3 @@
-/* eslint-disable no-template-curly-in-string */
 import React from 'react';
 import './SortingVisualizer.css';
 import {getMergeSortAnimations} from '../sortingAlgorithms/sortingAlgorithm.js';
