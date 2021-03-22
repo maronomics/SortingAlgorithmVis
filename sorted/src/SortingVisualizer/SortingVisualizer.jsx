@@ -125,9 +125,3 @@ function arraysAreEqual(arrOne, arrTwo) {
     }
     return true;
 }
-
-function checkBars(){
-    for(let barIdx = 0; barIdx < arrayBars.length; barIdx++) {
-        console.log(arrayBars[barIdx].style.height);
-    }
-}
