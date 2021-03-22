@@ -1,3 +1,6 @@
 # SortingAlgorithmVis
+
 Visualising Various Sorting Algorithms
-https://maronomics.github.io/SortingAlgorithmVis/
+
+github.io: <https://maronomics.github.io/SortingAlgorithmVis/>
+
