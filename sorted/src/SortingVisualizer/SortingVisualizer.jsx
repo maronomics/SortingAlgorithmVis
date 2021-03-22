@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 import React from 'react';
 import './SortingVisualizer.css';
 import {getMergeSortAnimations} from '../sortingAlgorithms/sortingAlgorithm.js';
@@ -15,7 +16,7 @@ const PRIMARY_COLOUR = 'black';
 // Secondary colour for bars
 const SECONDARY_COLOUR = 'red';
 
-
+const arrayBars = document.getElementsByClassName('array-bar');
 export default class SortingVisualizer extends React.Component {
     constructor(props){
         super(props);
@@ -40,7 +41,7 @@ export default class SortingVisualizer extends React.Component {
     mergeSort(){
         const animations = getMergeSortAnimations(this.state.array);
         for (let i = 0; i < animations.length; i++){
-            const arrayBars = document.getElementsByClassName('array-bars');
+            const arrayBars = document.getElementsByClassName('array-bar');
             const isColourChange = i % 3 !== 2;
             if (isColourChange){
                 const [barOneIdx, barTwoIdx] = animations[i];
@@ -55,7 +56,7 @@ export default class SortingVisualizer extends React.Component {
                 setTimeout(() => {
                     const [barOneIdx, newHeight] = animations[i];
                     const barOneStyle = arrayBars[barOneIdx].style;
-                    barOneStyle.height = '${newHeight}px';
+                    barOneStyle.height = '${newHeight * 0.99}%';
                 }, i * ANIMATION_SPEED_MS);
             }
         }
@@ -89,21 +90,22 @@ export default class SortingVisualizer extends React.Component {
     render (){
         const {array} = this.state; 
         return (
-            <div className = "array-container">
+            <div className="Vis-container">
+                <div className = "button-container">
+                    <button onClick={() => this.resetArray()}>Generate New Array</button>
+                    <button onClick={() => this.mergeSort()}>Merge Sort</button>
+                    <button onClick={() => this.quickSort()}>Quick Sort</button>
+                    <button onClick={() => this.heapSort()}>Heap Sort</button>
+                    <button onClick={() => this.bubbleSort()}>BubbleSort</button>
+                </div>
+                <div className='array-container'>
                 {array.map((value, idx) => (
                     <div 
                         className = "array-bar"
                         key = {idx}
-                        style= {{
-                            backgroundColor: PRIMARY_COLOUR,
-                            height: '${value}px',
-                        }}></div>
+                        style= {{height: '${value * 0.99}%'}}></div>
                 ))}
-                <button onClick={() => this.resetArray()}>Generate New Array</button>
-                <button onClick={() => this.mergeSort()}>Merge Sort</button>
-                <button onClick={() => this.quickSort()}>Quick Sort</button>
-                <button onClick={() => this.heapSort()}>Heap Sort</button>
-                <button onClick={() => this.bubbleSort()}>BubbleSort</button>
+                </div>
             </div>
         );
     }
@@ -123,4 +125,10 @@ function arraysAreEqual(arrOne, arrTwo) {
         }
     }
     return true;
+}
+
+function checkBars(){
+    for(let barIdx = 0; barIdx < arrayBars.length; barIdx++) {
+        console.log(arrayBars[barIdx].style.height);
+    }
 }
