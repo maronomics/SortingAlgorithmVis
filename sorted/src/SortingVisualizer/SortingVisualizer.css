@@ -3,8 +3,10 @@
     left: 100px;
 }
 
-.array-bar {
+.array-bars {
     width: 2px;
+    align-items: bottom;
     display: inline-block;
+    background-color: grey;
     margin: 0 1px;
 }

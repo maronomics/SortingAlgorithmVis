@@ -15,6 +15,7 @@ const PRIMARY_COLOUR = 'black';
 // Secondary colour for bars
 const SECONDARY_COLOUR = 'red';
 
+
 export default class SortingVisualizer extends React.Component {
     constructor(props){
         super(props);
@@ -39,7 +40,7 @@ export default class SortingVisualizer extends React.Component {
     mergeSort(){
         const animations = getMergeSortAnimations(this.state.array);
         for (let i = 0; i < animations.length; i++){
-            const arrayBars = document.getElementsByClassName('array-bar');
+            const arrayBars = document.getElementsByClassName('array-bars');
             const isColourChange = i % 3 !== 2;
             if (isColourChange){
                 const [barOneIdx, barTwoIdx] = animations[i];
