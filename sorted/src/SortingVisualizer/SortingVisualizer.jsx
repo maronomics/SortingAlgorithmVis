@@ -2,7 +2,7 @@ import React from 'react'
 import {getMergeSortAnimations} from '../sortingAlgorithms/sortingAlgorithm.js'
 import { randomIntFromInterval } from './randomIntFromInterval'
 import { arraysAreEqual} from './arraysAreEqual'
-import './SortingVisualizer.css'
+import '../SortingVisualizer/SortingVisualizer.css'
 
 // Speed of animation
 const ANIMATION_SPEED_MS = 1
@@ -16,7 +16,6 @@ const PRIMARY_COLOUR = 'black'
 // Secondary colour for bars
 const SECONDARY_COLOUR = 'red'
 
-const arrayBars = getElementsByClassName('array-bars')
 export default class SortingVisualizer extends React.Component {
     constructor(props){
         super(props)
@@ -45,8 +44,8 @@ export default class SortingVisualizer extends React.Component {
             const isColourChange = i % 3 !== 2
             if (isColourChange){
                 const [barOneIdx, barTwoIdx] = animations[i]
-                const barOneStyle = arrayBars[barOneIdx].style; 
-                const barTwoStyle = arrayBars[barTwoIdx].style; 
+                const barOneStyle = arrayBars[barOneIdx].style 
+                const barTwoStyle = arrayBars[barTwoIdx].style 
                 const colour = i % 3 === 0 ? SECONDARY_COLOUR : PRIMARY_COLOUR 
                 setTimeout(() => {
                     barOneStyle.backgroundColor = colour 
