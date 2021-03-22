@@ -10,7 +10,7 @@ const ANIMATION_SPEED_MS = 1;
 const ARRAY_SIZE = 310;
 
 // Main colour for bars
-const PRIMARY_COLOUR = 'black';
+const PRIMARY_COLOUR = 'darkgray';
 
 // Secondary colour for bars
 const SECONDARY_COLOUR = 'red';
