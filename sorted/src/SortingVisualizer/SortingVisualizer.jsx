@@ -1,4 +1,5 @@
 import React from 'react'
+import { randomIntFromInterval } from './randomIntFromInterval'
 
 // Speed of animation
 const ANIMATION_SPEED_MS = 1
@@ -34,7 +35,21 @@ export default class SortingVisualizer extends React.Component {
     }
 
     mergeSort(){
-        
+
     }
 
-}
+    bubbleSort(){
+
+    }
+
+    heapSort(){
+
+    }
+
+    quickSort(){
+
+    }
+
+    testSortingAlgorithms(){
+
+    }
