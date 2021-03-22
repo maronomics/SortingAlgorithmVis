@@ -1,12 +1,13 @@
 .array-container {
     position: absolute;
     margin-top: 50px;
+    margin-left: 100px;
 }
 
 .array-bar {
     align-items: bottom;
     width: 2px;
-    background-color: rgb(72, 72, 73);
+    background-color: rgba(17, 17, 17, 0.466);
     display: inline-block;
     margin: 0 1px;
 }

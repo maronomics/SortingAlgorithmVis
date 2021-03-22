@@ -10,12 +10,10 @@ const ANIMATION_SPEED_MS = 1;
 const ARRAY_SIZE = 310;
 
 // Main colour for bars
-const PRIMARY_COLOUR = 'darkgray';
+const PRIMARY_COLOUR = 'green';
 
 // Secondary colour for bars
 const SECONDARY_COLOUR = 'red';
-
-const arrayBars = document.getElementsByClassName('array-bar');
 export default class SortingVisualizer extends React.Component {
     constructor(props){
         super(props);
@@ -32,7 +30,7 @@ export default class SortingVisualizer extends React.Component {
     resetArray(){
         const array = [];
         for(let i = 0; i < ARRAY_SIZE; i++){
-            array.push(randomIntFromInterval(5,730));
+            array.push(randomIntFromInterval(5,660));
         }
         console.log(array);
         this.setState({array});
@@ -45,6 +43,7 @@ export default class SortingVisualizer extends React.Component {
             const isColourChange = i % 3 !== 2;
             if (isColourChange){
                 const [barOneIdx, barTwoIdx] = animations[i];
+                
                 const barOneStyle = arrayBars[barOneIdx].style;
                 const barTwoStyle = arrayBars[barTwoIdx].style;
                 const colour = i % 3 === 0 ? SECONDARY_COLOUR : PRIMARY_COLOUR;
@@ -94,10 +93,10 @@ export default class SortingVisualizer extends React.Component {
             <div className='array-container'>
             {array.map((value, idx) => (
                 <div 
-                    className = "array-bar"
+                    className = 'array-bar'
                     key = {idx}
                     style= {{height: `${value}px`,
-                    }}>{value}</div>
+                    }}></div>
             ))}
                 <div className = "button-container">
                     <button onClick={() => this.resetArray()}>Generate New Array</button>
