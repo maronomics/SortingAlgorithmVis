@@ -1,8 +1,6 @@
 import React from 'react';
 import './SortingVisualizer.css';
 import {getMergeSortAnimations} from '../sortingAlgorithms/sortingAlgorithm.js';
-import { randomIntFromInterval } from './randomIntFromInterval';
-import { arraysAreEqual} from './arraysAreEqual';
 
 
 // Speed of animation
@@ -108,4 +106,20 @@ export default class SortingVisualizer extends React.Component {
             </div>
         );
     }
+}
+
+export function randomIntFromInterval(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function arraysAreEqual(arrOne, arrTwo) {
+    if (arrOne.length !== arrTwo.length) {
+        return false;
+    }
+    for (let i = 0; i < arrOne.length; i++) {
+        if (arrOne[i] !== arrTwo[i]) {
+            return false;
+        }
+    }
+    return true;
 }
