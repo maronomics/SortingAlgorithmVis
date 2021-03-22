@@ -1,7 +1,7 @@
+/* eslint-disable no-const-assign */
 import React from 'react';
 import './SortingVisualizer.css';
 import {getMergeSortAnimations} from '../sortingAlgorithms/sortingAlgorithm.js';
-
 
 // Speed of animation
 const ANIMATION_SPEED_MS = 1;
@@ -30,7 +30,7 @@ export default class SortingVisualizer extends React.Component {
     resetArray(){
         const array = [];
         for(let i = 0; i < ARRAY_SIZE; i++){
-            array.push(randomIntFromInterval(5,660));
+            array.push(randomIntFromInterval(5,620));
         }
         console.log(array);
         this.setState({array});
@@ -41,15 +41,25 @@ export default class SortingVisualizer extends React.Component {
         for (let i = 0; i < animations.length; i++){
            const arrayBars = document.getElementsByClassName('array-bar');
             const isColourChange = i % 3 !== 2;
+            const barOneStyle = arrayBars[i];
+            const barTwoStyle = arrayBars[i];
             if (isColourChange){
                 const [barOneIdx, barTwoIdx] = animations[i];
-                
-                const barOneStyle = arrayBars[barOneIdx].style;
-                const barTwoStyle = arrayBars[barTwoIdx].style;
+                // console.log(animations[i]);
+                try {
+                barOneStyle = arrayBars[barOneIdx].style;
+                barTwoStyle = arrayBars[barTwoIdx].style;
+            } catch(e){
+                console.log(e);
+            } 
                 const colour = i % 3 === 0 ? SECONDARY_COLOUR : PRIMARY_COLOUR;
                 setTimeout(() => {
-                    barOneStyle.backgroundColor = colour; 
-                    barTwoStyle.backgroundColor = colour; 
+                    try {
+                   barOneStyle.backgroundColor = colour; 
+                   barTwoStyle.backgroundColor = colour;
+                    } catch(e){
+                        console.log(e);
+                    }
                 }, i * ANIMATION_SPEED_MS);
             } else{
                 setTimeout(() => {
@@ -95,7 +105,7 @@ export default class SortingVisualizer extends React.Component {
                 <div 
                     className = 'array-bar'
                     key = {idx}
-                    style= {{height: `${value}px`,
+                    style= {{backgroundColor: 'grey', height: `${value}px`,
                     }}></div>
             ))}
                 <div className = "button-container">
