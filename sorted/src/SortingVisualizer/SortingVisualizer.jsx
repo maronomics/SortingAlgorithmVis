@@ -36,7 +36,7 @@ export default class SortingVisualizer extends React.Component {
     resetArray(){
         const array = [];
         for(let i = 0; i < 120; i++){
-            array.push(randomIntFromInterval(5,150));
+            array.push(randomIntFromInterval(5,550));
         }
         console.log(array);
         this.setState({array});
@@ -51,9 +51,11 @@ export default class SortingVisualizer extends React.Component {
         for (let i = 0; i < animations.length; i++) {
           const isColorChange = i % 3 !== 2;
           if (isColorChange) {
-            const [barOneIdx, barTwoIdx] = animations[i];
-            const barOneStyle = arrayBars[barOneIdx].style;
-            const barTwoStyle = arrayBars[barTwoIdx].style;
+            const [barOneIndex, barTwoIndex] = animations[i];
+           // const barOneStyle = arrayBars[barOneIdx].style;
+           // const barTwoStyle = arrayBars[barTwoIdx].style;
+           const barOneStyle = arrayBars[barOneIndex]?arrayBars[barOneIndex].style: {};
+           const barTwoStyle = arrayBars[barTwoIndex]?arrayBars[barTwoIndex].style:{};
             const color = i % 3 === 0 ? SECONDARY_COLOUR : PRIMARY_COLOUR;
             setTimeout(() => {
               barOneStyle.backgroundColor = color;
@@ -61,8 +63,8 @@ export default class SortingVisualizer extends React.Component {
             }, i * ANIMATION_SPEED_MS);
           } else {
             setTimeout(() => {
-              const [barOneIdx, newHeight] = animations[i];
-              const barOneStyle = arrayBars[barOneIdx].style;
+              const [barOneIndex, newHeight] = animations[i];
+              const barOneStyle = arrayBars[barOneIndex]?arrayBars[barOneIndex].style: {};
               barOneStyle.height = `${newHeight * 0.99}%`;
             }, i * ANIMATION_SPEED_MS);
           }
@@ -80,19 +82,6 @@ export default class SortingVisualizer extends React.Component {
 
     quickSort(){
 
-    }
-
-    testSortingAlgorithms(){
-        for(let i = 0; i < 100; i++){
-            const array = [];
-            const length = randomIntFromInterval(1,500);
-            for (let i = 0; i < length; i++){
-                array.push(randomIntFromInterval(-500,500));
-            }
-            const javaScriptSortedArray = array.slice().sort((a,b) => a - b);
-            const mergeSortedArray = getMergeSortAnimations(array.slice());
-            console.log(arraysAreEqual(javaScriptSortedArray, mergeSortedArray));
-        }
     }
 
     render (){
