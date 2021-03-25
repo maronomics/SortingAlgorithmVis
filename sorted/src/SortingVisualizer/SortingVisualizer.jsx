@@ -4,10 +4,10 @@ import './SortingVisualizer.css';
 import {getMergeSortAnimations} from '../sortingAlgorithms/sortingAlgorithm.js';
 
 // Main colour for bars
-const PRIMARY_COLOUR = "green";
+const PRIMARY_COLOUR = "grey";
 
 // Secondary colour for bars
-const SECONDARY_COLOUR = "red";
+const SECONDARY_COLOUR = "darkgreen";
 
 // Global variables for setTimeouts
 // Speed of animation
@@ -25,6 +25,12 @@ export default class SortingVisualizer extends React.Component {
 
     componentDidMount(){
         this.resetArray();
+    }
+
+    genArray(){
+        for(let gens = randomIntFromInterval(2,5); gens < 6; gens++){
+            this.resetArray();
+        }
     }
 
     resetArray(){
