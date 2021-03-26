@@ -1,7 +1,6 @@
 /* eslint-disable no-const-assign */
 import React from "react";
 import "./SortingVisualizer.css";
-import Jumbotron from "react-bootstrap-Jumbotron"
 import { getMergeSortAnimations } from "../sortingAlgorithms/sortingAlgorithm.js";
 
 // Main colour for bars
