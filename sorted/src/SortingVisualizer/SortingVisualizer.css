@@ -1,27 +1,36 @@
-@media screen and (min-width: 480px){
-
-.array-container {
-    position: absolute;
-    width: 90%;
-    height: 50%;
+@media screen and (min-width: 800px){
+.mainbody{
     margin-top: 5%;
     margin-left: 5%;
+    font-family: sans-serif;
+
+}
+.header {
+    font-size: 18px;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+}
+
+.array-container {
+    position: relative;
+    padding: 5px;
+    margin-left: 40px;
 }
 
 .array-bar {
     align-items: bottom;
-    width: 1%;
+    width: 2px;
     background-color: grey;
     display: inline-block;
     margin: 0 1px;
 }
 
 .button-container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
-    margin-bottom: 5%;
+
 }
 .buttons{
     background-color:#519e2d;
