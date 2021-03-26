@@ -1,7 +1,7 @@
 /* eslint-disable no-const-assign */
 import React from "react";
 import "./SortingVisualizer.css";
-import { getMergeSortAnimations } from "../sortingAlgorithms/sortingAlgorithm.js";
+import { getMergeSortAnimations } from "../sortingAlgorithms/mergeSort.js";
 
 // Main colour for bars
 const PRIMARY_COLOUR = "lightgreen";
